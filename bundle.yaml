@@ -1,0 +1,13 @@
+services: 
+  keystone:
+    charm: cs:precise/keystone-255
+  tempest: 
+    charm: "cs:~jason-hobbs/trusty/tempest-0"
+    num_units: 1
+    options:
+      glance-image-name: trusty-server-cloudimg-amd64-disk1.img
+      image-ssh-user: ubuntu
+      network-name: ext-net
+relations:
+  - - keystone
+    - tempest

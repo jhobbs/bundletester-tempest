@@ -1,0 +1,4 @@
+bootstrap: false
+reset: false
+tests: "tempest_*"
+virtualenv: false
