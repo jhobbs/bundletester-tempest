@@ -1,6 +1,6 @@
 services: 
   keystone:
-    charm: cs:precise/keystone-255
+    charm: cs:trusty/keystone-255
   tempest: 
     charm: "cs:~jason-hobbs/trusty/tempest-0"
     num_units: 1
@@ -11,3 +11,4 @@ services:
 relations:
   - - keystone
     - tempest
+series: trusty

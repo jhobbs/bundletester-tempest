@@ -2,7 +2,7 @@
 echo "###################################### tempest_run ######################################"
 
 tempest_unit=`juju status --format=tabular | grep ^tempest/. | awk {'print $1'}`
-action_id=`juju action do $tempest_unit run-tempest | sed -e 's/Action queued with id: //g'`
+action_id=`juju action do ${tempest_unit} run-tempest | sed -e 's/Action queued with id: //g'`
 
 until juju action fetch $action_id | grep "status: completed"; do
     sleep 60
@@ -10,5 +10,5 @@ until juju action fetch $action_id | grep "status: completed"; do
 done
 
 mkdir remote-logs
-juju scp tempest/0:/var/lib/tempest/logs/* remote-logs
+juju scp ${tempest_unit}:/var/lib/tempest/logs/* remote-logs
 cat remote-logs/*
