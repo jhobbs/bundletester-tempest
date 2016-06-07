@@ -14,3 +14,4 @@ juju scp ${tempest_unit}:/var/lib/tempest/logs/* remote-logs
 cat remote-logs/*
 juju ssh ${tempest_unit} "sudo chmod 755 /var/lib/tempest/tempest-11.0.0/tempest/.testrepository/0"
 juju scp ${tempest_unit}:/var/lib/tempest/tempest-11.0.0/tempest/.testrepository/0 tempest-subunit.log
+subunit-1to2 | subunit2junitxml -o tempest-results.xml

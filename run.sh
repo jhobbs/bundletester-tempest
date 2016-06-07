@@ -11,7 +11,7 @@ source /etc/bash_completion.d/virtualenvwrapper
 rmvirtualenv bundletester
 mkvirtualenv bundletester
 source ~/.virtualenvs/bundletester/bin/activate
-pip install bundletester --upgrade
+pip install bundletester junitxml python-subunit
 
 juju_env=$1
 
